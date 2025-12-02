@@ -483,5 +483,8 @@ $RECYCLE.BIN/
 # Vim temporary swap files
 *.swp
 
+# VS Code workspace
+.vscode/
+
 #aoc specifically
 input/test.txt
