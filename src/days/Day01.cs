@@ -6,8 +6,8 @@ using aoc2025.src.utils;
 namespace aoc2025.src.Days;
 public class Day01 : IDay {
     private readonly string _inputPath;
-    public Day01(string? inputPath) {
-        _inputPath = inputPath ?? "input/Day01.txt";
+    public Day01(string inputPath = "") {
+        _inputPath = inputPath;
     }
     public object SolvePart1() {
         int counter = 0;

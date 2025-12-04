@@ -6,10 +6,10 @@ using aoc2025.src.interfaces;
 namespace aoc2025.src.Days;
 public class Day03 : IDay {
     private readonly string _inputPath;
-    public Day03(string? inputPath) {
-        _inputPath = inputPath ?? "input/Day03.txt";
+    public Day03(string inputPath = "") {
+        _inputPath = inputPath;
     }
-	private static long getMaxJoltage(string bank, int n) {
+	public static long getMaxJoltage(string bank, int n) {
         if (n <= 0 || bank.Length < n) return 0;
         var sb = new StringBuilder(n);
         int index = -1;
