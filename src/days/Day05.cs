@@ -55,19 +55,16 @@ public class Day05 : IDay {
     public object SolvePart2() {
         List<(long, long)> ranges = GetBounds().ToList();
         int n = ranges.Count;
-        while (true) {
-            for (int i = 0; i < n; i++) {
-                for (int j = i + 1; j < n; j++) {
-                    (long, long)? newrange = JoinRanges(ranges[i], ranges[j]);
-                    if (newrange == null) continue;
-                    ranges[i] = newrange.Value;
-                    ranges.RemoveAt(j);
-                    n -= 1;
-                    goto ResetForLoops;
-                }
+        ResetForLoops:; 
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                (long, long)? newrange = JoinRanges(ranges[i], ranges[j]);
+                if (newrange == null) continue;
+                ranges[i] = newrange.Value;
+                ranges.RemoveAt(j);
+                n -= 1;
+                goto ResetForLoops;
             }
-            break;
-        ResetForLoops:;
         }
         return ranges.Sum(range => range.Item2 - range.Item1 + 1);
     }
